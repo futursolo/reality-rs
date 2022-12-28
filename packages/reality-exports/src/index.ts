@@ -1,9 +1,9 @@
 import 'global-jsdom/register';
-// import { screen, within } from '@testing-library/dom';
+import { screen, within } from '@testing-library/dom';
 
 const realityExports = {
-  // screen,
-  // within,
+  screen,
+  within,
   test: 2,
 } as const;
 
