@@ -214,6 +214,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^18":
+  version: 18.11.18
+  resolution: "@types/node@npm:18.11.18"
+  checksum: 03f17f9480f8d775c8a72da5ea7e9383db5f6d85aa5fefde90dd953a1449bd5e4ffde376f139da4f3744b4c83942166d2a7603969a6f8ea826edfb16e6e3b49d
+  languageName: node
+  linkType: hard
+
 "@types/resolve@npm:1.20.2":
   version: 1.20.2
   resolution: "@types/resolve@npm:1.20.2"
@@ -1795,6 +1802,7 @@ __metadata:
     "@rollup/plugin-replace": ^5.0.2
     "@rollup/plugin-typescript": ^10.0.1
     "@testing-library/dom": ^8.19.1
+    "@types/node": ^18
     global-jsdom: ^8.6.0
     jsdom: ^20.0.3
     prettier: ^2.8.1

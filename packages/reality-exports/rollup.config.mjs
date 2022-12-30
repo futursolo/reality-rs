@@ -9,6 +9,7 @@ export default {
   output: {
     file: 'dist/reality-exports.cjs',
     format: 'cjs',
+    generatedCode: 'es2015',
   },
   plugins: [
     nodeResolve(),

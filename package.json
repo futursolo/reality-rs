@@ -3,7 +3,7 @@
   "private": true,
   "packageManager": "yarn@3.3.1",
   "scripts": {
-    "build": "yarn workspace reality-exports build"
+    "build": "yarn workspace reality-exports build && cp packages/reality-exports/dist/reality-exports.cjs crates/reality/src/exports.cjs"
   },
   "devDependencies": {
     "prettier": "^2.8.1",

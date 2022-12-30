@@ -4,7 +4,6 @@ import { screen, within } from '@testing-library/dom';
 const realityExports = {
   screen,
   within,
-  test: 2,
 } as const;
 
 declare module globalThis {
@@ -12,5 +11,8 @@ declare module globalThis {
 }
 
 globalThis.__realityExports = realityExports;
+
+// web_sys also checks if globalThis is indeed instanceof Window.
+Object.setPrototypeOf(globalThis, Window.prototype);
 
 export {};
