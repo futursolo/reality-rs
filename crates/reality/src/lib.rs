@@ -3,6 +3,8 @@ use js_sys::eval;
 use js_sys::{global, Reflect};
 
 mod error;
+#[doc(hidden)]
+pub mod expect;
 mod screen;
 mod searches;
 mod sys;
@@ -51,7 +53,7 @@ mod tests {
 
         let el = screen.search_text("test").find().await?;
 
-        assert_eq!(el.text_content().as_deref(), Some("test"));
+        expect_eq!(el.text_content().as_deref(), Some("test"))?;
 
         Ok(())
     }

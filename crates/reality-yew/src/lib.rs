@@ -9,10 +9,6 @@ pub fn render(layout: Html) -> Rendered {
     Rendered::new(layout)
 }
 
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -29,7 +25,7 @@ mod tests {
 
         let el = rendered.search_text("Hello!").find().await?;
 
-        assert_eq!(el.id(), "matched");
+        expect_eq!(el.id(), "matched")?;
 
         Ok(())
     }
