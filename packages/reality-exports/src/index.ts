@@ -14,5 +14,7 @@ globalThis.__realityExports = realityExports;
 
 // web_sys also checks if globalThis is indeed instanceof Window.
 Object.setPrototypeOf(globalThis, Window.prototype);
+// We disable colors for now, this should be fixed in the future.
+process.env.COLORS = 'false';
 
 export {};

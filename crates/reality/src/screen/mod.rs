@@ -1,11 +1,11 @@
 use crate::SearchTextOptions;
 
-mod sys;
+use crate::init;
+use crate::sys;
 
-pub(crate) use sys::ScreenSys;
-
+#[derive(Debug, Clone)]
 pub struct Screen {
-    inner: sys::ScreenSys,
+    inner: sys::Screen,
 }
 
 impl Screen {
@@ -13,15 +13,15 @@ impl Screen {
     where
         S: Into<String>,
     {
-        SearchTextOptions {
-            subject: self.inner.clone(),
-            text: text.into(),
-        }
+        SearchTextOptions::new(self.inner.clone().into_querier(), text.into())
     }
 }
 
+/// Retrieves the global screen instance.
 pub fn screen() -> Screen {
+    init();
+
     Screen {
-        inner: sys::ScreenSys::new(),
+        inner: sys::Screen::new(),
     }
 }

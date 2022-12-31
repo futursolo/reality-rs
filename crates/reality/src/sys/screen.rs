@@ -1,23 +1,18 @@
 //! The low-level binding to the screen type.
 
-use js_sys::{Object, Reflect};
-use wasm_bindgen::{prelude::*, JsCast};
+use js_sys::Reflect;
+use wasm_bindgen::prelude::*;
+use wasm_bindgen::JsCast;
+
+use super::Querier;
 
 #[wasm_bindgen]
 extern "C" {
-    #[derive(Clone)]
-    pub(crate) type ScreenSys;
-
-    #[wasm_bindgen(method, catch, js_name = "findByText")]
-    pub(crate) async fn find_by_text(
-        this: &ScreenSys,
-        text: &str,
-        query_options: &Object,
-        wait_for_options: &Object,
-    ) -> Result<JsValue, JsValue>;
+    #[derive(Debug, Clone)]
+    pub(crate) type Screen;
 }
 
-impl ScreenSys {
+impl Screen {
     pub(crate) fn new() -> Self {
         let global = js_sys::global();
         let exports = Reflect::get(&global, &"__realityExports".into())
@@ -26,5 +21,9 @@ impl ScreenSys {
         let screen_val = Reflect::get(&exports, &"screen".into()).expect("failed to get screen");
 
         screen_val.unchecked_into()
+    }
+
+    pub(crate) fn into_querier(self) -> Querier {
+        Querier::from_js_value(self.into())
     }
 }
