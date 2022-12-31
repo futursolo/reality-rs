@@ -4,7 +4,7 @@ Subject your application to brutal reality.
 
 # How to run tests
 
-Tests can be executed with: `wasm-pack test --node`
+To run tests created by reality, you can use: `wasm-pack test --node`
 
 # Development
 
